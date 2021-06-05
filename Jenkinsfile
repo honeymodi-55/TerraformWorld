@@ -2,13 +2,13 @@ pipeline {
     agent any 
     stages {
         stage ('Initializng terraform') {
-            steps { sh 'terraform init'}
-        }
-        stage ('Planning Terraform') {
-            steps { sh 'terraform plan'}
-        }
-        stage ('Applying terraform') {
-            steps { sh 'terraform apply'}
+            steps { 
+                withAWS(credentials: 'jenkins-terraform-user', region: 'ca-centreal-1'){
+                sh 'terraform init'
+                sh 'terraform plan'
+                sh 'terraform apply'
+                }
+            }
         }
     }
 }
