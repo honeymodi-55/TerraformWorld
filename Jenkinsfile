@@ -11,7 +11,7 @@ pipeline {
                 ]]){
                     sh 'terraform init'
                     sh 'terraform plan -var access_key=${AWS_ACCESS_KEY_ID} -var secret_key=${AWS_SECRET_ACCESS_KEY}'
-                    sh 'terraform apply -var access_key=${AWS_ACCESS_KEY_ID} -var secret_key=${AWS_SECRET_ACCESS_KEY}'
+                    sh 'terraform apply -var access_key=${AWS_ACCESS_KEY_ID} -var secret_key=${AWS_SECRET_ACCESS_KEY} -input=false'
                 }
                 }
             }
