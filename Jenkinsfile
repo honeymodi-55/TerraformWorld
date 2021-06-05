@@ -3,10 +3,14 @@ pipeline {
     stages {
         stage ('Initializng terraform') {
             steps { 
-                withAWS(credentials: 'jenkins-terraform-user', region: 'ca-centreal-1'){
-                sh 'terraform init'
-                sh 'terraform plan'
-                sh 'terraform apply'
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: "jenkins-terraform-user",
+                    access_key: 'AWS_ACCESS_KEY_ID'
+                    secret_key: "AWS_SECRET_ACCESS_KEY"
+                ]]){
+                    sh 'terrform plann'
+                }
                 }
             }
         }
