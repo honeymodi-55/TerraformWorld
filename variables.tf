@@ -3,10 +3,10 @@ variable "region" {
   default = "ca-central-1"
 }
 
-variable "access_key" {
+variable "access" {
   type = string
 }
 
-variable "secret_key" {
+variable "secret" {
   type =  string
 }
