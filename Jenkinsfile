@@ -1,3 +1,3 @@
-@Library("sharedlibrary") _
+@Library("shared-library-mahidhar") _
 
 terraform("access","secret")
