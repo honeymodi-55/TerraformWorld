@@ -10,6 +10,6 @@ resource "aws_instance" "HeadInstance" {
 
 provider "aws" {
   region = var.region
-  access_key = var.access_key
-  secret_key = var.secret_key
+  access_key = var.access
+  secret_key = var.secret
 }
